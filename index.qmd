@@ -101,7 +101,7 @@ The examples below are nicely formatted so you can read and follow the patterns,
 ```markdown
 @book{hadley2016,
   author = {Hadley, Wickham}, 
-  title = {{ggplot2}: Elegant Graphics for Data Analysis}, 
+  title = {ggplot2: Elegant Graphics for Data Analysis}, 
   url  = {https://ggplot2-book.org},
   publisher = {Springer},
   address = {New York, NY},
