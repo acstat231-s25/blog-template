@@ -61,23 +61,20 @@ Similar to the Shiny project, you will need to organize your wrangling scripts a
 
 1. Edit contents of any files. Each new qmd file is a self-contained environment, so you will need to load any necessary packages and datasets for rendering that particular file at the top of that file.
 
-2. Go to the **Build** tab of RStudio (in the same pane as *Environment*, *History*, etc.), and click **Render Website**.
+2. After updating a qmd file, **Render** the qmd file. Note that the rendered files (.html etc) are in the `docs` folder. Keep them there!
 
-3. Commit changes to website and push to publish those changes. 
-
-
-You can also render individual qmd files one at a time as usual (e.g., using `Command` + `Shift` + `K` or clicking the **Render** button at the top of the qmd file) to interactively see how a single page changes. However, in order for those changes to display correctly on your published website, you must render the full website first by going to the **Build** tab and clicking **Render Website** before committing and pushing the updates. 
+3. Commit changes to website and PUSH to publish those changes. 
 
 
 # Citations, cross-referencing, and linking between pages
 
 ## Cross-referencing
 
-As with the Calendar Query project, you should use code chunk labels and in-text [cross-references for figures and tables](https://quarto.org/docs/authoring/cross-references.html#computations) (see the *Knitr* examples at the link). Appropriately cross-referencing tables and figures is **required** for this project.
+You should use code chunk labels and in-text [cross-references for figures and tables](https://quarto.org/docs/authoring/cross-references.html#computations) (see the *Knitr* examples at the link). 
 
+Quarto additionally provides similar syntax for [creating labels for and cross-referencing equations](https://quarto.org/docs/authoring/cross-references.html#equations), [creating labels for and cross-referencing sections](https://quarto.org/docs/authoring/cross-references.html#sections), and using code chunk options of the form `lst-label: lst-your-listing-label` and `lst-cap: Code chunk caption` to be able to cross-reference displayed code chunks (or "listings") using the syntax `@lst-your-listing-label` within the text. 
 
-Quarto additionally provides similar syntax for [creating labels for and cross-referencing equations](https://quarto.org/docs/authoring/cross-references.html#equations),  [creating labels for and cross-referencing sections](https://quarto.org/docs/authoring/cross-references.html#sections), and using code chunk options of the form `lst-label: lst-your-listing-label` and `lst-cap: Code chunk caption` to be able to cross-reference displayed code chunks (or "listings") using the syntax `@lst-your-listing-label` within the text. These are not required for this project but are good practice.
-
+These are not required for this project but are good practice.
 
 
 ## Creating and linking to subpages
@@ -87,15 +84,14 @@ You can create subpages by simply creating new qmd files. Any subpage you want t
 You can [link to another page on the website](another-page.qmd) by using just the filepath to the corresponding qmd file. You can also [link directly to a section of a subpage](yet-another-page.qmd#sec-note). 
 
 
-
 ## Creating the bibliography
 
 One of the new challenges of Quarto, relative to a Word or Google doc, is learning how to build a bibliography and use the specified citation keys to write in-text citations.
 
-All items you plan to cite should be added to the `library.bib` bibliography file, which you can open from within RStudio and edit just like any other text file. You should use standard bibtex syntax for each entry, following the examples provided. If the resource you are using doesn't already provide a way to generate a bibtex entry, I recommend using [zoterobib](https://zbib.org) to generate the appropriate syntax (must change the Bibliography style to "BibTeX generic citation style"). The syntax examples shown below capture the range of entries you are most likely to use. These entries are currently in `library.bib`, but you should delete and replace the contents of `library.bib` with your own citation entries. 
+All items you plan to cite should be added to the `library.bib` bibliography file, which *you can open from within RStudio and edit just like any other text file*. You should use standard bibtex syntax for each entry, following the examples provided. If the resource you are using doesn't already provide a way to generate a bibtex entry, I recommend using [zoterobib](https://zbib.org) to generate the appropriate syntax (must change the Bibliography style to "BibTeX generic citation style"). The entries currently in `library.bib` are intended to provide syntax examples that capture the range of entries you are most likely to use. **You will need to delete and replace the contents of `library.bib` with your own citation entries.**
 
 ::: {.callout-note}
-The examples below are nicely formatted so you can read and follow the patterns, but formatting and order of the `library.bib` file doesn't actually matter and will not be assessed. Just be sure the citations are as complete as possible (authors, titles, dates, urls, dois, etc.).
+The examples in `library.bib` are nicely formatted so you can read and follow the patterns, but formatting and order of the `library.bib` file doesn't actually matter and will not be assessed. Just be sure the citations are as complete as possible (authors, titles, dates, urls, dois, etc.).
 :::
 
 ```markdown
@@ -145,9 +141,9 @@ I would strongly recommend  using **knitr**'s `include_graphics()` functions wit
 #| fig-cap: "Image courtesy of giphy.com"
 #| fig-align: center
 #| out-width: 100%
-#| fig-link: "https://giphy.com/gifs/insecurehbo-insecure-hbo-season-4-H7ZrrA9V2pd3Tehdds"
+#| fig-link: "https://giphy.com/gifs/insecurehbo-3og0IT6sIWd1eh7bJm"
 
-include_graphics("https://i.giphy.com/H7ZrrA9V2pd3Tehdds.webp")
+include_graphics("https://i.giphy.com/3og0IT6sIWd1eh7bJm.webp")
 ```
 
 Either approach will take either a filepath to a stored file or a URL to an image or gif. Width can be specified as a percentage of the width of the page (0% to 100%; my preferred approach) or as a fixed number of units (e.g. 400px, 3in, 10cm). 
@@ -203,10 +199,6 @@ Some additional content.
 
 The values provided within each row specify the relative widths of the content within that row. For example "[1,2,1]" would create a row with 3 columns where the first and third columns are the same width and the middle column is twice as wide.
 
-Headings are not required to indicate the start of a new component. The linked section, for example, shows the use of custom layouts for a series of imported figures. [Block layouts](https://quarto.org/docs/authoring/figures.html#block-layout) provide alternative ways to divvy up content.
-
-
-
 
 ## Layouts for tables and visualizations produced by code chunks
 
@@ -252,10 +244,4 @@ ggplot(pressure, aes(temperature, pressure)) +
 ggplot(mtcars, aes(hp, mpg)) +
   geom_point()
 ```
-
-
-
-
-
-
 
